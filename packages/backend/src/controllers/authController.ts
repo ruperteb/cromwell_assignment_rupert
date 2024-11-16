@@ -51,21 +51,30 @@ const handleLogin = async (req: Request, res: Response) => {
 
 const handleRegistration = async (req: Request, res: Response) => {
   const { name, email, password }: RegistrationFields = req.body;
-  const existingEmail = await db.query.usersTable.findFirst({
-    where: eq(usersTable.email, email),
-  });
 
-  if (existingEmail) {
-    res.status(400).send("A profile with this email address already exists");
-    return;
-  }
+  // The database would throw an error if an attempt to add a new user with the same email or name was made,
+  // but probably better to handle this proactively
+  try {
+    const existingEmail = await db.query.usersTable.findFirst({
+      where: eq(usersTable.email, email),
+    });
 
-  const existingName = await db.query.usersTable.findFirst({
-    where: eq(usersTable.name, name),
-  });
+    if (existingEmail) {
+      res.status(400).send("A profile with this email address already exists");
+      return;
+    }
 
-  if (existingName) {
-    res.status(400).send("A profile with this name already exists");
+    const existingName = await db.query.usersTable.findFirst({
+      where: eq(usersTable.name, name),
+    });
+
+    if (existingName) {
+      res.status(400).send("A profile with this name already exists");
+      return;
+    }
+  } catch (e) {
+    res.status(500).send("Database error");
+    console.error(e);
     return;
   }
 
