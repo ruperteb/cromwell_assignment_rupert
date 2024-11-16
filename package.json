@@ -1,0 +1,15 @@
+{
+  "name": "cromwell_assignment_rupert",
+  "version": "1.0.0",
+  "description": "Cromwell application technical assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ]
+}
