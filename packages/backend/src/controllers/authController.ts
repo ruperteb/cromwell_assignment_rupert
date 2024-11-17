@@ -104,7 +104,7 @@ const handleRegistration = async (req: Request, res: Response) => {
 
 const handleLogout = async (req: Request, res: Response) => {
   await deleteSession(res);
-  res.status(200).send("Logout success");
+  res.status(200).send("Logout successful");
 };
 
 const handleVerify = async (req: Request, res: Response) => {
