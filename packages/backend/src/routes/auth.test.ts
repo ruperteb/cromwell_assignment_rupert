@@ -131,7 +131,7 @@ describe("Auth routes", () => {
         const verifyRes = await agent.get("/auth/verify");
 
         expect(verifyRes.statusCode).toBe(200);
-        expect(verifyRes.body.userId).toBeUndefined;
+        expect(verifyRes.body.userId).toBeUndefined();
         expect(verifyRes.body.isAuth).toBe(false);
       });
       test("Failed verification - invalid session cookie", async () => {
@@ -139,7 +139,7 @@ describe("Auth routes", () => {
         const verifyRes = await agent.get("/auth/verify");
 
         expect(verifyRes.statusCode).toBe(200);
-        expect(verifyRes.body.userId).toBeUndefined;
+        expect(verifyRes.body.userId).toBeUndefined();
         expect(verifyRes.body.isAuth).toBe(false);
       });
     });
