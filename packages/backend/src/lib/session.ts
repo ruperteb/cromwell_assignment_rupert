@@ -5,7 +5,7 @@ import { JOSEError } from "jose/errors";
 
 const secretKey = process.env.SECRET_KEY;
 const encodedKey = new TextEncoder().encode(secretKey);
-const tokenDuration = 24 * 60 * 60 * 1000; // i.e. one day in seconds
+const tokenDuration = 60 * 60 * 1000; // i.e. one hour in seconds
 
 // Function to encrypt the session payload and create a JWT
 export async function encrypt(payload: SessionPayload) {

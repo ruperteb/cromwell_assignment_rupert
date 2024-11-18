@@ -4,12 +4,16 @@
   "description": "Cromwell application technical assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend:dev": "npm run dev --workspace=frontend",
+    "backend:start": "npm run start --workspace=backend"
   },
   "author": "",
   "license": "ISC",
   "workspaces": [
     "packages/frontend",
     "packages/backend"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
 }
