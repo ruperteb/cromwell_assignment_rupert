@@ -5,6 +5,12 @@ import { usersTable } from "../db/schema";
 import { UserResponse, UserUpdateFields } from "../lib/definitions";
 import { deleteSession } from "../lib/session";
 
+const sleep = async (delay: number) => {
+  return new Promise((res) => {
+    setTimeout(res, delay);
+  });
+};
+
 /* User Controllers */
 const getOwnUser = async (req: Request, res: Response) => {
   const { userId } = req.session!; // Session should always exist on this route
@@ -38,6 +44,8 @@ const getOwnUser = async (req: Request, res: Response) => {
 };
 
 const updateOwnUser = async (req: Request, res: Response) => {
+  await sleep(500);
+
   const { userId } = req.session!; // Session should always exist on this route
   const userUpdate: UserUpdateFields = req.body;
   delete userUpdate.role; // Regular users should not be able to change their role - This should not be in the request, but removing here as a fallback
@@ -123,6 +131,7 @@ const getUser = async (req: Request, res: Response) => {
 };
 
 const updateUser = async (req: Request, res: Response) => {
+  await sleep(500);
   const { userId } = req.params;
   const userUpdate: UserUpdateFields = req.body;
   let user: UserResponse;

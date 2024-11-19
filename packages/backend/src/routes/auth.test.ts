@@ -18,7 +18,7 @@ describe("Auth routes", () => {
       test("Successful login", async () => {
         const loginRes = await agent.post("/auth/login").send({
           email: "jdoe@cromwell.com",
-          password: "admin",
+          password: "admin@123",
         });
 
         expect(loginRes.statusCode).toBe(200);
@@ -29,7 +29,7 @@ describe("Auth routes", () => {
       test("Failed login - incorrect email", async () => {
         const loginRes = await agent.post("/auth/login").send({
           email: "jdoe1@cromwell.com",
-          password: "admin",
+          password: "admin@123",
         });
 
         expect(loginRes.statusCode).toBe(404);
@@ -41,7 +41,7 @@ describe("Auth routes", () => {
       test("Failed login - incorrect password", async () => {
         const loginRes = await agent.post("/auth/login").send({
           email: "jdoe@cromwell.com",
-          password: "admin1",
+          password: "admin",
         });
 
         expect(loginRes.statusCode).toBe(401);
@@ -55,7 +55,7 @@ describe("Auth routes", () => {
         const registrationRes = await agent.post("/auth/register").send({
           name: "New user",
           email: "abc@cromwell.com",
-          password: "test",
+          password: "test@123",
         });
 
         expect(registrationRes.statusCode).toBe(200);
@@ -67,7 +67,7 @@ describe("Auth routes", () => {
         const registrationRes = await agent.post("/auth/register").send({
           name: "New user",
           email: "jdoe@cromwell.com",
-          password: "test",
+          password: "test@123",
         });
 
         expect(registrationRes.statusCode).toBe(400);
@@ -82,7 +82,7 @@ describe("Auth routes", () => {
         const registrationRes = await agent.post("/auth/register").send({
           name: "John Doe",
           email: "jdoe1@cromwell.com",
-          password: "test",
+          password: "test@123",
         });
 
         expect(registrationRes.statusCode).toBe(400);

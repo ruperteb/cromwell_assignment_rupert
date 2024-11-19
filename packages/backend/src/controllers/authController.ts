@@ -6,8 +6,17 @@ import { eq } from "drizzle-orm";
 import { compare, hash } from "bcrypt";
 import { createSession, deleteSession, verifySession } from "../lib/session";
 
+const sleep = async (delay: number) => {
+  return new Promise((res) => {
+    setTimeout(res, delay);
+  });
+};
+
 const handleLogin = async (req: Request, res: Response) => {
   const { email, password }: LoginFields = req.body;
+
+  // Simulating network delay for frontend
+  await sleep(500);
 
   let user:
     | {
@@ -51,6 +60,9 @@ const handleLogin = async (req: Request, res: Response) => {
 
 const handleRegistration = async (req: Request, res: Response) => {
   const { name, email, password }: RegistrationFields = req.body;
+
+  // Simulating network delay for frontend
+  await sleep(500);
 
   // The database would throw an error if an attempt to add a new user with the same email or name was made,
   // but probably better to handle this proactively

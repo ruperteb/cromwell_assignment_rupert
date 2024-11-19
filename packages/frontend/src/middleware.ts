@@ -14,7 +14,7 @@ export default async function middleware(req: NextRequest) {
   const isAdminRoute = adminRoutes.includes(path);
   /* const isPublicRoute = publicRoutes.includes(path); */
 
-  // Verifying existing token (if present). This function call should be cached
+  // Verifying existing session (if present). This function call should be cached
   let session: VerifyResponse | undefined;
   const reqHeaders = await headers();
   try {

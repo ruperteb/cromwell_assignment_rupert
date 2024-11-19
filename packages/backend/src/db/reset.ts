@@ -20,7 +20,7 @@ export async function reset() {
     DELETE FROM SQLITE_SEQUENCE WHERE NAME = 'users';`);
 
   // Encrypt the user's password
-  const mockPassword = await hash("admin", 10);
+  const mockPassword = await hash("admin@123", 10);
 
   const user: typeof usersTable.$inferInsert = {
     name: "John Doe",
