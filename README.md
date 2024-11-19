@@ -46,7 +46,7 @@ The login credentials for the "admin" user are as follows:
 - email: `jdoe@cromwell.com`
 - password: `admin@123`
 
-Logging in as this user will provide access to additional functionality, allowing navigation to the "Users" page (showing a list of all profiles) and subsequently to an individual user's profile page
+Logging in as this user will provide access to additional functionality, allowing navigation to the "Users" page (showing a list of all profiles) and subsequently, to an individual user's profile page
 
 ## Scripts
 
