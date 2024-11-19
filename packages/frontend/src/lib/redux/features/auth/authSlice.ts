@@ -80,19 +80,10 @@ export const authSlice = createSlice({
       state.message = action.payload as string;
     });
   },
-  // You can define your selectors here. These selectors receive the slice
-  // state as their first argument.
-  /* selectors: {
-    selectCount: (counter) => counter.value,
-    selectStatus: (counter) => counter.status,
-  }, */
+
 });
 
-// Action creators are generated for each case reducer function.
-export const {
-  /* login  */
-} = authSlice.actions;
+// Action creators are generated for each case reducer function. Not needed in this case
+export const {} = authSlice.actions;
 
-// Selectors returned by `slice.selectors` take the root state as their first argument.
-/* export const { selectCount, selectStatus } = counterSlice.selectors; */
 export default authSlice.reducer;
