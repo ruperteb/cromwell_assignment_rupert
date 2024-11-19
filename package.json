@@ -4,6 +4,7 @@
   "description": "Cromwell application technical assignment",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently npm:backend:start npm:frontend:dev --kill-others",
     "frontend:dev": "npm run dev --workspace=frontend",
     "backend:start": "npm run start --workspace=backend"
   },
