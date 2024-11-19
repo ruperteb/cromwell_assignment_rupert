@@ -5,7 +5,9 @@ import { useGetUsersQuery } from "@/lib/redux/features/users/usersApi";
 import UserCard from "../userCard";
 
 const UsersList = () => {
-  const { data } = useGetUsersQuery();
+  const { data } = useGetUsersQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
 
   return (
     <Stack direction="row" sx={{ marginY: 10 }}>

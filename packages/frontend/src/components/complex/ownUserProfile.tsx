@@ -24,11 +24,13 @@ import { useAppDispatch } from "@/lib/redux/hooks";
 import { logout } from "@/lib/redux/features/auth/authThunks";
 
 const OwnUserProfile = () => {
-
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const { data } = useGetOwnUserQuery();
+  const { data } = useGetOwnUserQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
+
   const [updateProfile, updateResult] = useUpdateOwnUserMutation();
   const [deleteProfile] = useDeleteOwnUserMutation();
 
